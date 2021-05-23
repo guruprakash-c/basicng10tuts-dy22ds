@@ -1,0 +1,7 @@
+<h1>Template Driven Forms</h1>
+<form #regform="ngForm" (submit)="saveForm(regform)">
+  <input type="text" name="fname" [(ngModel)]="fname" required/>
+  <button type="submit" [disabled]="!regform.valid">Save</button>
+  <button type="button" (click)="reloadform(regform)">Reset</button>
+  <button type="button" (click)="loadform(regform)">Load</button>
+</form>

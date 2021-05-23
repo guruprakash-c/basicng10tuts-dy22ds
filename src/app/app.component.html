@@ -1,0 +1,22 @@
+<headersec></headersec>
+<!--main>
+  <time>{{ todaysDate | date : 'yyyy-MMMM-dd' | uppercase}}</time>
+  <div [ngSwitch]="isAdded" title="{{isAdded}}">
+    <section *ngSwitchCase="1">Case #1</section>
+    <section *ngSwitchCase="2">Case #2</section>
+    <section *ngSwitchCase="3">Case #3</section>
+    <section *ngSwitchCase="4">Case #4</section>
+    <section *ngSwitchDefault>Case Default</section>
+  </div>
+  <h3>Event Binding</h3>
+  <input type="range" (change)="OnChange($event)" min="1" max="5" value="1" step="1"/>
+  <p class="bg-info text-white rounded-pill px-2 py-2" *ngIf="currVal != 0">Your value is: {{currVal | currency : 'JPY'}}</p>
+  <p class="bg-info text-white rounded-pill px-2 py-2" *ngIf="currVal != 0">Your value is: {{currVal | percent : '2.1-2'}}</p>
+  <progress min="0" max="10" step="1" value="{{currVal | number}}"></progress>
+  <input type="text" (blur)="OnBlur($event)" [(ngModel)]="userName" class="form-control" maxlength="500"/>
+  <small>{{userName.length | number: '2.1-2'}}/500</small>
+</main-->
+<main class="mt-3 mb-3">
+  <router-outlet></router-outlet>
+  <router-outlet name="router1"></router-outlet>
+</main>

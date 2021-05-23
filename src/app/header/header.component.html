@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Angular<sup>10</sup> Tutorials</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="la la-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <span *ngIf="userType=='Admin'; then adminMenu; else userMenu;"></span>
+      <ng-template #adminMenu>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+        </ul>
+      </ng-template>
+      <ng-template #userMenu>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngFor="let m of menuItems">
+          <li class="nav-item" *ngIf="m.home">
+            <a class="nav-link" [attr.aria-current]="'curPg'" href="{{m.home.link}}"
+              [title]="m.home.textToDisplay">{{m.home.textToDisplay | uppercase}}</a>
+          </li>
+          <li class="nav-item" *ngIf="m.about">
+            <a class="nav-link" href="{{m.about.link}}" [title]="m.about.textToDisplay">{{m.about.textToDisplay |
+              lowercase}}</a>
+          </li>
+          <li class="nav-item" *ngIf="m.blog">
+            <a class="nav-link" href="{{m.blog.link}}" [title]="m.blog.textToDisplay">{{m.blog.textToDisplay}}</a>
+          </li>
+          <li class="nav-item" *ngIf="m.forms">
+            <a class="nav-link" href="{{m.forms.link}}" [title]="m.forms.textToDisplay">{{m.forms.textToDisplay}}</a>
+          </li>
+        </ul>
+      </ng-template>
+      <span class="navbar-text">
+        Welcome {{userType}}
+      </span>
+    </div>
+  </div>
+</nav>
+<!-- {{menuItems | json}} -->

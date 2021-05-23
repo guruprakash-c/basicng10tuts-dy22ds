@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Recently Added Post(s)</h1>
+  <div *ngIf="searchFilters.length > 0">
+    <!-- <small *ngFor="let filter of searchFilters">
+      <span class="badge bg-primary ms-1 me-1">{{ filter[0] }}</span>
+      <span class="badge bg-primary ms-1 me-1">{{ filter[1] }}</span>
+      <span class="badge bg-primary ms-1 me-1">{{ filter[2] }}</span>
+    </small> -->
+  </div>
+  <section class="row">
+    <article *ngIf="articleCount > 0" class="col-md-12 md-offset-2">
+      <dl class="row">
+        <dt class="col-sm-3"><a href="/blog/1">Description lists</a></dt>
+        <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+        <dt class="col-sm-3"><a href="/blog/2">Term</a></dt>
+        <dd class="col-sm-9">
+          <p>Definition for the term.</p>
+          <p>And some more placeholder definition text.</p>
+        </dd>
+        <dt class="col-sm-3"><a href="/blog/3">Another term</a></dt>
+        <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>
+        <dt class="col-sm-3 text-truncate"><a href="/blog/4">Truncated term is truncated</a></dt>
+        <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
+        <dt class="col-sm-3 text-truncate"><a href="/blog/5">Truncated term is truncated</a></dt>
+        <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
+      </dl>
+    </article>
+  </section>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Send your Enquiries</h1>
+  <section class="row">
+    <div class="col-md-6 md-offset-2">
+      <form method="post" name="contact" enctype="multipart/form-data">
+        <div class="mb-2 mt-2">
+          Name:
+          <input type="text" class="form-control form-control-sm" [(ngModel)]="contact.name" required/>
+        </div>
+        <div class="mb-2 mt-2">
+          Email:
+          <input type="email" class="form-control form-control-sm" [(ngModel)]="contact.email" required/>
+        </div>
+        <div class="mb-2 mt-2">
+          Message:
+          <textarea class="form-control form-control-sm" [(ngModel)]="contact.message" required></textarea>
+        </div>
+        <div class="mb-2 mt-2">
+          <button type="submit" class="btn btn-success btn-sm me-1" (click)="OnSubmit(contact)">Send</button>
+          <button type="reset" class="btn btn-danger btn-sm ms-1">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

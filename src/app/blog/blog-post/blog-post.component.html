@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>{{ posts.postTitle }}</h1>
+  <section class="row">
+    <article class="col-md-8">
+      <a [routerLink]="[ '/blog' ]">
+        <- Back to Post(s)</a>
+          <img src="{{ posts.postBanner }}" class="img-fluid mt-2 mb-2" alt=""/>
+          <article class="align-jutify mt-1 mb-1">
+            {{ posts.postDescription }}
+          </article>
+          <div class="btn-group mt-1 mb-1" role="group" aria-label="Basic example">
+            <a role="button" [routerLink]="[ 'blog/posts',posts.postId,'share',posts.postId ]" target="_blank"
+              class="btn btn-primary">facebook</a>
+            <a role="button" [routerLink]="[ 'blog/posts',posts.postId,'share',posts.postId ]" target="_blank"
+              class="btn btn-primary">twitter</a>
+            <a role="button" [routerLink]="[ 'blog/posts',posts.postId,'share',posts.postId ]" target="_blank"
+              class="btn btn-primary">whatsapp</a>
+          </div>
+    </article>
+    <aside class="col-md-4">related posts
+    </aside>
+  </section>
+</div>
