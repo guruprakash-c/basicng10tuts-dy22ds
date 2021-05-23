@@ -20,6 +20,9 @@ export class ReactiveformsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.addForm.get('rememberMe').valueChanges.subscribe(isChecked => {
+      console.log(isChecked);
+    });
     /*
     this.addForm = new FormGroup({
       username: new FormControl(),
@@ -49,7 +52,7 @@ export class ReactiveformsComponent implements OnInit {
     this.addForm.setValue(dataToEdit);//pass all values otherwise throws error
     */
     //this.addForm.patchValue(dataToEdit);
-    if (this.addForm.invalid) {
+    /*if (this.addForm.invalid) {
       alert('Please fill the form to signin.');
     }
     if (this.addForm.pending) {
@@ -60,23 +63,20 @@ export class ReactiveformsComponent implements OnInit {
     }
     if (this.addForm.untouched) {
       alert('Untouched.');
-    }
+    }*/
   }
 
   loginForm(data) {
     if (this.addForm.valid) {
       console.log(this.addForm.value);
     }
-    if (this.addForm.dirty) {
+    /*if (this.addForm.dirty) {
       alert('Dirty.');
     }
 
     if (this.addForm.touched) {
       alert('Touched.');
-    }
-    this.addForm.valueChanges.subscribe(data => {
-      alert(data);
-    });
+    }*/
   }
   resetForm(){
     this.addForm.reset();
