@@ -6,6 +6,7 @@ import { AuthGuard } from './auth.guard';
 import { BlogPostComponent } from './blog/blog-post/blog-post.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { ReactiveformsComponent } from './reactiveforms/reactiveforms.component';
 import { ResolveExGuard } from './resolve-ex.guard';
 import { RFFormsComponent } from './rfforms/rfforms.component';
 import { SubscriberGuard } from './subscriber.guard';
@@ -31,6 +32,10 @@ const routes: Routes = [
   //   redirectTo: 'error',
   //   pathMatch: 'full'
   // },
+  {
+    path: 'rform',
+    component: ReactiveformsComponent
+  },
   {
     path: 'aboutus',
     component: AboutusComponent,

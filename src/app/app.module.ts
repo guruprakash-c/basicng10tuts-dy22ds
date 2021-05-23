@@ -16,6 +16,7 @@ import { AuthGuard } from './auth.guard';
 import { UnsavedGuard } from './unsaved.guard';
 import { TFFormsComponent } from './tfforms/tfforms.component';
 import { RFFormsComponent } from './rfforms/rfforms.component';
+import { ReactiveformsComponent } from './reactiveforms/reactiveforms.component';
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule],
@@ -29,7 +30,8 @@ import { RFFormsComponent } from './rfforms/rfforms.component';
     BlogPostComponent,
     AppErrorComponent,
     TFFormsComponent,
-    RFFormsComponent
+    RFFormsComponent,
+    ReactiveformsComponent
   ],
   providers: [AuthenticatorResponse, SubscriberGuard, AuthGuard, UnsavedGuard],
   bootstrap: [AppComponent]

@@ -1,0 +1,31 @@
+<div class="container">
+  <section class="row align-items-center">
+    <div class="col-md-6">
+      <form [formGroup]="addForm" (submit)="loginForm(addForm)">
+        <div class="mt-1 mb-1">
+          <label class="form-label">Username:</label>
+          <input type="text" class="form-control" formControlName="username"/>
+          <small class="text-danger d-block" *ngIf="addForm.get('username').hasError('required') && addForm.get('username').touched">Please enter your username</small>
+          <small class="text-danger d-block" *ngIf="(addForm.get('username').hasError('minlength') || addForm.get('username').hasError('maxlength')) && addForm.get('username').touched">max. 8-12 characters are accepted</small>
+        </div>
+        <div class="mt-1 mb-1">
+          <label class="form-label">Password:</label>
+          <input type="password" class="form-control" formControlName="password" [(ngModel)]="p"/>
+          <small class="text-muted" *ngIf="p != null">you have entered {{ p }}</small>
+        </div>
+        <div class="mt-1 mb-1">
+          <label class="form-label">Avatar:</label>
+          <input type="file" class="form-control" formControlName="avatarPhoto"/>
+        </div>
+        <div class="mt-1 mb-1">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" formControlName="rememberMe"/>
+            <label class="form-check-label">Remember Me</label>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-md mt-2" [disabled]="!addForm.valid" type="submit">Signin</button>
+        <button class="btn btn-danger ms-" (click)="resetForm()">Reset</button>
+      </form>
+    </div>
+  </section>
+</div>

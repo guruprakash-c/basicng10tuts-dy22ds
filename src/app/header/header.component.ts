@@ -30,8 +30,8 @@ export class HeaderComponent implements OnInit, OnChanges {
         hasChild: true
       },
       forms: {
-        link: '/forms',
-        textToDisplay: 'Angular Forms',
+        link: '/rform',
+        textToDisplay: 'Reactive Forms',
         isActive: false,
         hasChild: false
       }
