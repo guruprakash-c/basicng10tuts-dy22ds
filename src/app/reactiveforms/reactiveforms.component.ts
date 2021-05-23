@@ -20,9 +20,6 @@ export class ReactiveformsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.addForm.get('rememberMe').valueChanges.subscribe(isChecked => {
-      console.log(isChecked);
-    });
     /*
     this.addForm = new FormGroup({
       username: new FormControl(),
@@ -77,8 +74,14 @@ export class ReactiveformsComponent implements OnInit {
     if (this.addForm.touched) {
       alert('Touched.');
     }*/
+    this.addForm.get('rememberMe').valueChanges.subscribe(isChecked => {
+      console.log(isChecked);
+    });
+    this.addForm.get('rememberMe').statusChanges.subscribe(statusChkBx => {
+      console.log(statusChkBx);
+    });
   }
-  resetForm(){
+  resetForm() {
     this.addForm.reset();
   }
 }
