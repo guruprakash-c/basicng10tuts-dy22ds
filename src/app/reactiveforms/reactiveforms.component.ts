@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -12,11 +12,15 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './reactiveforms.component.html',
   styleUrls: ['./reactiveforms.component.css']
 })
-export class ReactiveformsComponent implements OnInit {
+export class ReactiveformsComponent implements OnInit, OnDestroy {
   addForm: FormGroup;
   p: any;
+  sub: any;
   constructor(private pgTitle: Title, private fb: FormBuilder) {
     this.pgTitle.setTitle('Reactive Forms - Angular Tutorial');
+  }
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   ngOnInit() {
@@ -61,8 +65,13 @@ export class ReactiveformsComponent implements OnInit {
     if (this.addForm.untouched) {
       alert('Untouched.');
     }*/
+    this.addForm.statusChanges.subscribe(d => {
+      console.log(d);
+    });
+    this.addForm.get('username').statusChanges.subscribe(d => {
+      console.log('username: ' + d);
+    });
   }
-
   loginForm(data) {
     if (this.addForm.valid) {
       console.log(this.addForm.value);
