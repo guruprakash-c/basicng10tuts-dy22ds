@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
+  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
+RequiredValidator,
   Validators
 } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
@@ -12,15 +14,11 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './reactiveforms.component.html',
   styleUrls: ['./reactiveforms.component.css']
 })
-export class ReactiveformsComponent implements OnInit, OnDestroy {
+export class ReactiveformsComponent implements OnInit {
   addForm: FormGroup;
   p: any;
-  sub: any;
   constructor(private pgTitle: Title, private fb: FormBuilder) {
     this.pgTitle.setTitle('Reactive Forms - Angular Tutorial');
-  }
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
 
   ngOnInit() {
@@ -71,6 +69,20 @@ export class ReactiveformsComponent implements OnInit, OnDestroy {
     this.addForm.get('username').statusChanges.subscribe(d => {
       console.log('username: ' + d);
     });
+  }
+  get users(): FormArray {
+    return this.addForm.get('addForm') as FormArray;
+  }
+  addNewUser() {
+    debugger;
+    //let userArr = this.users;
+    let userArr = this.addForm.get('addForm') as FormArray;
+    let newUsr = this.fb.group({
+      fname: new FormControl('',Validators.compose([Validators.required,Validators.maxLength(8)])),
+      lname: new FormControl('',Validators.re),
+      dname: ''
+    });
+    userArr.push(newUsr);
   }
   loginForm(data) {
     if (this.addForm.valid) {

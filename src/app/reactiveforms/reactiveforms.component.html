@@ -2,19 +2,18 @@
   <section class="row align-items-center">
     <div class="col-md-6">
       <form [formGroup]="addForm" (submit)="loginForm(addForm)">
+        <button (click)="addNewUser()" class="btn btn-light"><span class="ms-1 me-1">[+]</span>New User</button>
         <div class="mt-1 mb-1">
           <label class="form-label">Username:</label>
           <input type="text" class="form-control" formControlName="username" />
           <small
             class="text-danger d-block"
             *ngIf="addForm.get('username').hasError('required') && addForm.get('username').touched"
-            >Please enter your username</small
-          >
+            >Please enter your username</small>
           <small
             class="text-danger d-block"
             *ngIf="(addForm.get('username').hasError('minlength') || addForm.get('username').hasError('maxlength')) && addForm.get('username').touched"
-            >max. 8-12 characters are accepted</small
-          >
+            >max. 8-12 characters are accepted</small>
         </div>
         <div class="mt-1 mb-1">
           <label class="form-label">Password:</label>
@@ -25,8 +24,7 @@
             [(ngModel)]="p"
           />
           <small class="text-muted" *ngIf="p != null"
-            >you have entered {{ p }}</small
-          >
+            >you have entered {{ p }}</small>
         </div>
         <div class="mt-1 mb-1">
           <label class="form-label">Avatar:</label>
