@@ -4,7 +4,7 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-RequiredValidator,
+  RequiredValidator,
   Validators
 } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
@@ -29,6 +29,7 @@ export class ReactiveformsComponent implements OnInit {
       rememberMe: new FormControl(),
       avatarPhoto: new FormControl()
     });*/
+
     this.addForm = this.fb.group({
       username: new FormControl('', [
         Validators.required,
@@ -69,20 +70,34 @@ export class ReactiveformsComponent implements OnInit {
     this.addForm.get('username').statusChanges.subscribe(d => {
       console.log('username: ' + d);
     });
+    /*let misc = new FormArray([
+      new FormControl('department'),
+      new FormControl('age')
+    ]);
+    --or--
+    */
+    misc: new FormArray([
+      // this.fb.group({
+      //   dept: new FormControl(''),
+      //   age: new FormControl('')
+      // })
+    ]);
   }
   get users(): FormArray {
-    return this.addForm.get('addForm') as FormArray;
+    return this.addForm.get('misc') as FormArray;
   }
   addNewUser() {
     debugger;
-    //let userArr = this.users;
-    let userArr = this.addForm.get('addForm') as FormArray;
-    let newUsr = this.fb.group({
-      fname: new FormControl('',Validators.compose([Validators.required,Validators.maxLength(8)])),
-      lname: new FormControl('',Validators.re),
-      dname: ''
+    //let miscArr = this.users;
+    let miscArr = this.addForm.get('misc') as FormArray;
+    let miscUsr = this.fb.group({
+      dept: new FormControl(
+        '',
+        Validators.compose([Validators.required, Validators.maxLength(8)])
+      ),
+      age: new FormControl('', Validators.required)
     });
-    userArr.push(newUsr);
+    miscArr.push(miscUsr);
   }
   loginForm(data) {
     if (this.addForm.valid) {

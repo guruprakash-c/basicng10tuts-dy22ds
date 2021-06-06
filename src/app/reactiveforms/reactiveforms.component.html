@@ -44,6 +44,25 @@
             <label class="form-check-label">Remember Me</label>
           </div>
         </div>
+        <!-- <div class="mt-1 mb-1" formArrayName="misc">
+          <label>Form Array Eg.,</label>
+          <div class="row">
+            <section class="col-md-3" *ngFor="let ctrl of addForm.controls.misc['controls']; let i = index;">
+              <input type="text" class="form-control" [formControlName]="i"/>
+            </section>
+          </div>
+        </div> -->
+        <div class="mt-1 mb-1" formArrayName="misc">
+          <label>Form Array Eg.,</label>
+          <div class="row" *ngFor="let ctrl of addForm.controls.misc['controls']; let i = index;" [formGroupName]="i">
+            <!-- <section class="col-md-3">
+              <input type="text" class="form-control" [formControlName]="dept"/>
+            </section>
+            <section class="col-md-3">
+              <input type="number" class="form-control" [formControlName]="age"/>
+            </section> -->
+          </div>
+        </div>
         <button
           class="btn btn-primary btn-md mt-2"
           [disabled]="!addForm.valid"
